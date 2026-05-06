@@ -1,0 +1,20 @@
+# HTTP client (for Ollama, HuggingFace REST calls)
+requests>=2.31
+
+# Environment variable management
+python-dotenv>=1.0
+
+# Google Gemini SDK
+google-generativeai>=0.7
+
+# HuggingFace inference client
+huggingface_hub>=0.24
+
+# Observability
+langfuse>=2.40
+
+# CLI niceties
+click>=8.1
+
+# For pretty output (we'll use this for the markdown report later)
+rich>=13.0
