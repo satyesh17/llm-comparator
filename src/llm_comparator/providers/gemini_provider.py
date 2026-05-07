@@ -6,11 +6,14 @@ from google.api_core import exceptions as google_exceptions
 
 load_dotenv()    # call this once, at module import time
 
+
 class GeminiProvider(LLMProvider):
 
     """LLM provider for Google's gemini models via Google SDK"""
 
     name="gemini"
+
+    
 
     def __init__(self,model:str = "gemini-2.5-flash"):
         super().__init__()
@@ -25,7 +28,7 @@ class GeminiProvider(LLMProvider):
 
     def generate(self, prompt: str) -> LLMResult:
 
-        """Generate result using thje Google Gemini API and return an LLMResult"""
+        """Generate result using the Google Gemini API and return an LLMResult"""
         start=time.perf_counter()
 
         try:
