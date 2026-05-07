@@ -6,14 +6,16 @@ from dataclasses import dataclass
 @dataclass
 class LLMResult:
     """Normalized result from any LLM provider call."""
-
-    model: str               # "llama3.1:8b", "gemini-2.5-flash", etc.
-    output: str              # the actual generated text
-    latency_ms: float        # wall-clock time
-    input_tokens: int        # tokens read by the model
-    output_tokens: int       # tokens generated
-    cost_usd: float          # calculated from pricing.py (0 for local)
-    error: str | None = None       # populated if something went wrong
+    
+    model: str
+    output: str
+    latency_ms: float
+    input_tokens: int
+    output_tokens: int
+    cost_usd: float
+    error: str | None = None
+    quality_score: float | None = None      # ← NEW
+    quality_reasoning: str | None = None    # ← NEW
 
 class LLMProvider(ABC):
 

@@ -13,7 +13,7 @@ from src.llm_comparator.providers.gemini_provider import GeminiProvider
 from src.llm_comparator.providers.huggingface_provider import HuggingFaceProvider
 from src.llm_comparator.pricing import calculate_cost
 
-
+from src.llm_comparator.judge import Judge, JudgeResult
 
 def get_providers():
     """Return the list of providers to benchmark"""
@@ -25,21 +25,34 @@ def get_providers():
         HuggingFaceProvider(model="meta-llama/Llama-3.1-8B-Instruct:cerebras"),
     ]
 
-def run_comparison(prompt:str):
-
-    """Run the prompt across all providers and return results as a list of LLMResult"""
+def run_comparison(prompt: str):
+    """Call every provider, then judge each output."""
     providers = get_providers()
+    judge = Judge()    # ← NEW: create judge once
     results = []
+    
     for provider in providers:
         click.echo(f"Calling {provider.name}/{provider.model}...")
         result = provider.generate(prompt)
-        # Calculate cost using our pricing module
+        
         result.cost_usd = calculate_cost(
-            result.model, 
-            result.input_tokens, 
+            result.model,
+            result.input_tokens,
             result.output_tokens,
-            )
+        )
+        
         results.append(result)
+    
+    # Judge after all generations are done (less interleaved API noise)
+    click.echo("\nJudging responses...")
+    for result in results:
+        if result.error:
+            continue    # don't judge failed responses
+        
+        judgment = judge.score(prompt, result.output)
+        result.quality_score = judgment.score
+        result.quality_reasoning = judgment.reasoning
+    
     return results
 
 def write_report(prompt: str, results: list, output_dir: Path = Path("reports")):
@@ -51,29 +64,34 @@ def write_report(prompt: str, results: list, output_dir: Path = Path("reports"))
     report_path = output_dir / f"{timestamp}_{safe_prompt}.md"
     
     with open(report_path, "w") as f:
-        f.write(f"# LLM Comparison Report\n\n")
+        f.write("# LLM Comparison Report\n\n")
         f.write(f"**Timestamp:** {datetime.now().isoformat()}\n\n")
         f.write(f"**Prompt:** {prompt}\n\n")
-        f.write(f"---\n\n## Summary\n\n")
-        f.write(f"| Model | Latency (ms) | In Tokens | Out Tokens | Tok/sec | Cost (USD) | Status |\n")
-        f.write(f"|---|---|---|---|---|---|---|\n")
+        f.write("---\n\n## Summary\n\n")
+        # ↓ NEW: added "Quality" column
+        f.write("| Model | Quality | Latency (ms) | In Tokens | Out Tokens | Tok/sec | Cost (USD) | Status |\n")
+        f.write("|---|---|---|---|---|---|---|---|\n")
         
         for r in results:
             tps = r.output_tokens / (r.latency_ms / 1000) if r.latency_ms else 0
             status = "❌" if r.error else "✅"
+            quality = f"{r.quality_score:.1f}/10" if r.quality_score is not None else "—"
             f.write(
-                f"| `{r.model}` | {r.latency_ms:.1f} | {r.input_tokens} | "
+                f"| `{r.model}` | {quality} | {r.latency_ms:.1f} | {r.input_tokens} | "
                 f"{r.output_tokens} | {tps:.1f} | ${r.cost_usd:.6f} | {status} |\n"
             )
         
-        f.write(f"\n---\n\n## Outputs\n\n")
+        f.write("\n---\n\n## Outputs\n\n")
         for r in results:
             f.write(f"### {r.model}\n\n")
             if r.error:
                 f.write(f"**ERROR:** {r.error}\n\n")
             else:
                 f.write(f"{r.output}\n\n")
-            f.write(f"---\n\n")
+                # ↓ NEW: judge reasoning
+                if r.quality_reasoning:
+                    f.write(f"\n**Judge ({r.quality_score:.1f}/10):** {r.quality_reasoning}\n\n")
+            f.write("---\n\n")
     
     return report_path
 
