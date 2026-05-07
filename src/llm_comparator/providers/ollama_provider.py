@@ -1,6 +1,8 @@
 from .base import LLMProvider, LLMResult
 import os, requests, time
 from dotenv import load_dotenv
+from langfuse import observe
+
 load_dotenv()    # call this once, at module import time
 
 class OllamaProvider(LLMProvider):
@@ -19,6 +21,7 @@ class OllamaProvider(LLMProvider):
                        or os.environ.get("OLLAMA_BASE_URL") 
                        or "http://localhost:11434")
 
+    @observe(name="ollama_generate", as_type="generation")
     def generate(self, prompt: str) -> LLMResult:
 
         """Generate text using the Ollama API and return an LLMResult."""

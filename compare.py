@@ -4,6 +4,8 @@
 from datetime import datetime
 from pathlib import Path
 
+
+
 # Third-party
 import click
 
@@ -15,6 +17,14 @@ from src.llm_comparator.pricing import calculate_cost
 
 from src.llm_comparator.judge import Judge, JudgeResult
 
+from langfuse import get_client
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Initialize Langfuse — reads LANGFUSE_* env vars automatically
+langfuse = get_client()
+
 def get_providers():
     """Return the list of providers to benchmark"""
     return [
@@ -24,7 +34,12 @@ def get_providers():
         GeminiProvider(model="gemini-2.5-flash"),
         HuggingFaceProvider(model="meta-llama/Llama-3.1-8B-Instruct:cerebras"),
     ]
+from langfuse import observe
 
+@observe(name="benchmark_run")
+def run_comparison(prompt: str):
+    """Call every provider, then judge each output."""
+    # ... existing body unchanged
 def run_comparison(prompt: str):
     """Call every provider, then judge each output."""
     providers = get_providers()
@@ -116,6 +131,8 @@ def main(prompt: str, prompt_file: str):
         results = run_comparison(p)
         report_path = write_report(p, results)
         click.echo(f"\n✅ Report saved: {report_path}\n")
+
+    langfuse.flush()    # ensure all events are sent to Langfuse before exiting
 
 
 if __name__ == "__main__":

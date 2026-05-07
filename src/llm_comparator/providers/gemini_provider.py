@@ -3,6 +3,8 @@ import google.generativeai as genai
 import time, os
 from dotenv import load_dotenv
 from google.api_core import exceptions as google_exceptions
+from langfuse import observe
+from ..retry import retry_with_backoff
 
 load_dotenv()    # call this once, at module import time
 
@@ -26,13 +28,15 @@ class GeminiProvider(LLMProvider):
         self.model=model
         self._model=genai.GenerativeModel(model)
 
+    @observe(name="gemini_generate", as_type="generation")
+
     def generate(self, prompt: str) -> LLMResult:
 
         """Generate result using the Google Gemini API and return an LLMResult"""
         start=time.perf_counter()
 
         try:
-            response=self._model.generate_content(prompt)
+            response=retry_with_backoff(lambda: self._model.generate_content(prompt))
             elapsed_ms=(time.perf_counter()-start)*1000
 
             return LLMResult(

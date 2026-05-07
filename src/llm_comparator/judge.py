@@ -3,10 +3,11 @@
 import json
 import os
 from dataclasses import dataclass
+from .retry import retry_with_backoff
 
 import google.generativeai as genai
 from dotenv import load_dotenv
-
+from langfuse import observe
 load_dotenv()
 
 
@@ -47,6 +48,8 @@ class Judge:
         genai.configure(api_key=api_key)
         self._model = genai.GenerativeModel(model)
 
+
+    @observe(name="judge_score", as_type="generation")
     def score(self, prompt: str, answer: str) -> JudgeResult:
         """Score a candidate answer against the original prompt."""
         if not answer.strip():
@@ -57,7 +60,8 @@ class Judge:
 
         try:
             judge_prompt = RUBRIC.format(prompt=prompt, answer=answer)
-            response = self._model.generate_content(
+            response = retry_with_backoff(
+                lambda:self._model.generate_content(
                 judge_prompt,
                 generation_config={
                     "response_mime_type": "application/json",
@@ -70,6 +74,7 @@ class Judge:
                         "required": ["score", "reasoning"],
                     },
                 },
+            )
             )
             parsed = json.loads(response.text)
             return JudgeResult(

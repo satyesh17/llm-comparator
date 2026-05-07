@@ -5,6 +5,7 @@ from huggingface_hub.errors import HfHubHTTPError
 from .base import LLMProvider, LLMResult
 import time, os
 from dotenv import load_dotenv
+from langfuse import observe
 
 
 load_dotenv()    # call this once, at module import time
@@ -24,6 +25,7 @@ class HuggingFaceProvider(LLMProvider):
         self._client=InferenceClient(model=model,token=token)
 
 
+    @observe(name="huggingface_generate", as_type="generation")
     def generate(self, prompt: str) -> LLMResult:
 
         """Generate result using the HuggingFace Inference API and return an LLMResult"""
