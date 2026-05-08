@@ -31,7 +31,7 @@ def get_providers():
         OllamaProvider(model="llama3.1:8b"),
         OllamaProvider(model="qwen2.5:7b"),
         OllamaProvider(model="mistral:7b"),
-        GeminiProvider(model="gemini-2.5-flash"),
+        GeminiProvider(model="gemini-2.5-flash-lite"),
         HuggingFaceProvider(model="meta-llama/Llama-3.1-8B-Instruct:cerebras"),
     ]
 from langfuse import observe
@@ -65,6 +65,7 @@ def run_comparison(prompt: str):
             continue    # don't judge failed responses
         
         judgment = judge.score(prompt, result.output)
+        click.echo(f"  Judge for {result.model}: score={judgment.score}, error={judgment.error}")
         result.quality_score = judgment.score
         result.quality_reasoning = judgment.reasoning
     

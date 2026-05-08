@@ -9,6 +9,7 @@ PRICING = {
 
     # Gemini Free tier
     "gemini-2.5-flash": {"input":0.0, "output":0.0},
+    "gemini-2.5-flash-lite": {"input": 0.0, "output": 0.0},
 
     # HuggingFace / Cerebras free credits
     "meta-llama/Llama-3.1-8B-Instruct:cerebras": {"input":0.0, "output":0.0},

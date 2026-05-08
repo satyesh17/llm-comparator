@@ -40,7 +40,7 @@ class JudgeResult:
 class Judge:
     """LLM-as-judge using Gemini 2.5 Flash to score responses."""
 
-    def __init__(self, model: str = "gemini-2.5-flash"):
+    def __init__(self, model: str = "gemini-2.5-flash-lite"):
         api_key = os.environ.get("GOOGLE_API_KEY")
         if not api_key:
             raise ValueError("GOOGLE_API_KEY not found.")

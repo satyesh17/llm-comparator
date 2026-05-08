@@ -17,7 +17,7 @@ class GeminiProvider(LLMProvider):
 
     
 
-    def __init__(self,model:str = "gemini-2.5-flash"):
+    def __init__(self,model:str = "gemini-2.5-flash-lite"):
         super().__init__()
         
         api_key=os.environ.get("GOOGLE_API_KEY")
