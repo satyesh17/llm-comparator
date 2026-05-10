@@ -5,6 +5,12 @@ from dotenv import load_dotenv
 from google.api_core import exceptions as google_exceptions
 from langfuse import observe
 from ..retry import retry_with_backoff
+            
+import json
+import time
+from pydantic import ValidationError
+
+from ..email_models import EmailClassification, EmailClassificationResult, EmailClassificationLite
 
 load_dotenv()    # call this once, at module import time
 
@@ -73,7 +79,43 @@ class GeminiProvider(LLMProvider):
                 cost_usd=0.0,
                 error=f"Google API error: {e}",
                 )
+
+
+
+    def classify_email(self, email_text: str) -> EmailClassificationResult:
+        """Classify an email using Gemini's native response_schema mode."""
+        result = EmailClassificationResult(
+            provider="gemini",
+            model=self.model,
+        )
+        
+        prompt = f"Classify the following email into the structured schema.\n\nEMAIL:\n{email_text}"
+        
+        start = time.perf_counter()
+        try:
+            response = self._model.generate_content(
+                prompt,
+                generation_config={
+                    "response_mime_type": "application/json",
+                    "response_schema": EmailClassificationLite,
+                },
+            )
+            result.raw_output = response.text
+            result.latency_ms = (time.perf_counter() - start) * 1000
             
+            # Parse + validate
+            parsed = json.loads(response.text)
+            result.classification = EmailClassification.model_validate(parsed)
+            result.schema_pass = True
+            
+        except ValidationError as e:
+            result.latency_ms = (time.perf_counter() - start) * 1000
+            result.error = f"ValidationError: {str(e)[:200]}"
+        except Exception as e:
+            result.latency_ms = (time.perf_counter() - start) * 1000
+            result.error = f"{type(e).__name__}: {str(e)[:200]}"
+        
+        return result
 
 
 
