@@ -1,0 +1,747 @@
+[
+  {
+    "email_index": 0,
+    "subject": "Enron Article",
+    "preview": "Investing, One Stock=20 =20 Broad Horizons=20 =20 by Jeff Schlegel=20 =20 December 2000, \"Worth\" magazine=20 =20 Energy giant Enron is expanding its powerful trading platform into the heart of the U.S",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "This email discusses Enron's expansion of its trading platform beyond energy to include various assets, suggesting potential profits for investors who understand this business model."
+        },
+        "raw_output": "{\n  \"action_required\": false,\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"summary\": \"This email discusses Enron's expansion of its trading platform beyond energy to include various assets, suggesting potential profits for investors who understand this business model.\"\n}",
+        "latency_ms": 3075.7,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Enron expanding trading platform into U.S. economy, offering contracts on various commodities and derivatives."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Enron expanding trading platform into U.S. economy, offering contracts on various commodities and derivatives.\"\n}",
+        "latency_ms": 9670.7,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": false,
+          "summary": "Article discussing Enron's expansion into trading various commodities and contracts, with CEO Jeffrey Skilling emphasizing its potential for future profits."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": false,\n  \"summary\": \"Article discussing Enron's expansion into trading various commodities and contracts, with CEO Jeffrey Skilling emphasizing its potential for future profits.\"\n}",
+        "latency_ms": 14141.1,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": false,
+        "classification": null,
+        "raw_output": "{\n  \"category\": \"investing\",\n  \"priority\": \"high\",\n  \"action_required\": true,\n  \"summary\": \"Email discusses Enron's expansion into various markets and its focus on trading contracts, highlighting future investment potential\"\n}",
+        "latency_ms": 9993.4,
+        "error": "ValidationError: 1 validation error for EmailClassification\ncategory\n  Input should be 'sales', 'support', 'billing', 'spam' or 'other' [type=literal_error, input_value='investing', input_type=str]\n    For further inf"
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": false,
+          "summary": "Summary of article discussing Enron's expansion into trading platform with standardized contracts."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": false,\n  \"summary\": \"Summary of article discussing Enron's expansion into trading platform with standardized contracts.\"\n}",
+        "latency_ms": 503.9,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 1,
+    "subject": "Tiger et al",
+    "preview": "It seems that Miriam Radach has been transferred to Sherman & Sterling's  Washington D.C. office.\nShe is working with a NY associate named Jennifer  Kumble.\nThe lawyers had a lot of issues to discuss ",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Miriam Radach transferred to the Washington D.C. office and will provide comments next week. Sara is going to Baton Rouge for the holidays to watch LSU play."
+        },
+        "raw_output": "{\n  \"action_required\": false,\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"summary\": \"Miriam Radach transferred to the Washington D.C. office and will provide comments next week. Sara is going to Baton Rouge for the holidays to watch LSU play.\"\n}",
+        "latency_ms": 1114.2,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Transfer of Miriam Radach to Washington D.C. office with NY associate Jennifer Kumble"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Transfer of Miriam Radach to Washington D.C. office with NY associate Jennifer Kumble\"\n}",
+        "latency_ms": 3780.5,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Update on Miriam Radach's new office and upcoming comments from lawyers."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Update on Miriam Radach's new office and upcoming comments from lawyers.\"\n}",
+        "latency_ms": 9102.0,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Email regarding Miriam Radach's transfer and upcoming discussions with Tiger"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Email regarding Miriam Radach's transfer and upcoming discussions with Tiger\"\n}",
+        "latency_ms": 3142.3,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Miriam Radach transferred to Sherman & Sterling's Washington D.C. office, working with Jennifer Kumble."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Miriam Radach transferred to Sherman & Sterling's Washington D.C. office, working with Jennifer Kumble.\"\n}",
+        "latency_ms": 556.0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 2,
+    "subject": "Constellation TA",
+    "preview": "Gregg,   As we discussed...\nI would add the following provision at the end of the  second sentence in Section VIII A.\n(3):  ;provided however, in the event that Seller's invoice to Buyer is delayed du",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "billing",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "This email provides a contract amendment regarding payment due dates for demand charges, contingent on timely ANR information from the buyer."
+        },
+        "raw_output": "{\n  \"action_required\": true,\n  \"category\": \"billing\",\n  \"priority\": \"medium\",\n  \"summary\": \"This email provides a contract amendment regarding payment due dates for demand charges, contingent on timely ANR information from the buyer.\"\n}",
+        "latency_ms": 1007.7,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "billing",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Request to update contract with revised payment terms"
+        },
+        "raw_output": "{\n  \"category\": \"billing\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Request to update contract with revised payment terms\"\n}",
+        "latency_ms": 9105.5,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Stacy requests a provision be added to the second sentence in Section VIII A (3) regarding payment due dates for Demand Charge."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Stacy requests a provision be added to the second sentence in Section VIII A (3) regarding payment due dates for Demand Charge.\"\n}",
+        "latency_ms": 9685.8,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "billing",
+          "priority": "high",
+          "action_required": true,
+          "summary": "Discussion about provision adjustment in billing section due to delayed ANR information."
+        },
+        "raw_output": "{\n  \"category\": \"billing\",\n  \"priority\": \"high\",\n  \"action_required\": true,\n  \"summary\": \"Discussion about provision adjustment in billing section due to delayed ANR information.\"\n}",
+        "latency_ms": 3336.0,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "support",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Stacy provided an email regarding additions to a provision in a contract, related to delayed Seller invoices and due dates for payment."
+        },
+        "raw_output": "{\n  \"category\": \"support\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Stacy provided an email regarding additions to a provision in a contract, related to delayed Seller invoices and due dates for payment.\"\n}",
+        "latency_ms": 701.7,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 3,
+    "subject": "Beavers Tickets for MONDAY, 30 July",
+    "preview": "Please consider hosting the Enron Suite while we help the community!!\nWe have donated our Suite to Metropolitan Family Services on Monday, and need an Enron representative!\nI have 2 tickets and one pa",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "An Enron representative is needed to help host the Enron Suite for a donation event. Tickets to a game are also available for interested parties."
+        },
+        "raw_output": "{\n  \"action_required\": true,\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"summary\": \"An Enron representative is needed to help host the Enron Suite for a donation event. Tickets to a game are also available for interested parties.\"\n}",
+        "latency_ms": 1256.3,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Enron Suite hosting request and Beavers Game tickets available"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Enron Suite hosting request and Beavers Game tickets available\"\n}",
+        "latency_ms": 11973.6,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Request for Enron representative to host Enron Suite during donation event; also offers tickets and parking pass for Beavers Game."
+        },
+        "raw_output": "{\n  \"category\": \"sales\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Request for Enron representative to host Enron Suite during donation event; also offers tickets and parking pass for Beavers Game.\"\n}",
+        "latency_ms": 9333.6,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Proposal for Enron Suite hosting and offer for Beavers Game tickets"
+        },
+        "raw_output": "{\"category\": \"sales\", \"priority\": \"medium\", \"action_required\": true, \"summary\": \"Proposal for Enron Suite hosting and offer for Beavers Game tickets\"}",
+        "latency_ms": 2721.8,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Company donates Enron Suite for community event, seeking Enron representative."
+        },
+        "raw_output": "{\n  \"category\": \"sales\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Company donates Enron Suite for community event, seeking Enron representative.\"\n}",
+        "latency_ms": 468.1,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 4,
+    "subject": "Attn. Facilities Managers",
+    "preview": "Are you in the need for professional furniture service?\nIs your modular (cubicle) furniture being mis-treated by inexperienced service companies?\nRecon Office Solutions has put together an outfit of e",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "low",
+          "action_required": true,
+          "summary": "This email is a sales pitch from Recon Office Solutions offering professional furniture services, emphasizing experienced technicians and competitive pricing for businesses in Houston."
+        },
+        "raw_output": "{\n  \"action_required\": true,\n  \"category\": \"sales\",\n  \"priority\": \"low\",\n  \"summary\": \"This email is a sales pitch from Recon Office Solutions offering professional furniture services, emphasizing experienced technicians and competitive pricing for businesses in Houston.\"\n}",
+        "latency_ms": 1340.6,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": true,
+          "summary": "Recon Office Solutions offers professional furniture service and maintenance with experienced technicians."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": true,\n  \"summary\": \"Recon Office Solutions offers professional furniture service and maintenance with experienced technicians.\"\n}",
+        "latency_ms": 10122.0,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Recon Office Solutions promotes their experienced furniture maintenance service, offering a visit and pricing quote."
+        },
+        "raw_output": "{\n  \"category\": \"sales\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Recon Office Solutions promotes their experienced furniture maintenance service, offering a visit and pricing quote.\"\n}",
+        "latency_ms": 9181.4,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Professional furniture service offer from Recon Office Solutions"
+        },
+        "raw_output": "{\n  \"category\": \"sales\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Professional furniture service offer from Recon Office Solutions\"\n}",
+        "latency_ms": 4423.4,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": true,
+          "summary": "Professional furniture service, experienced technicians, honest price quote"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": true,\n  \"summary\": \"Professional furniture service, experienced technicians, honest price quote\"\n}",
+        "latency_ms": 465.0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 5,
+    "subject": "Cal Imbalance Deals - 5/3",
+    "preview": "I've entered the following imbalance deals under STCA and STWBom desks.\n599966 STCA sells Cal Imb  NP-15  On Peak 38 MW  600031 STWB sells Cal Imb NP-15 On Peak 37 MW  Let me know if you have any ques",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Confirmation of imbalance deals entered under STCA and STWBom desks, specifying deal IDs, desk names, and MW amounts. Ready for questions."
+        },
+        "raw_output": "{\n  \"action_required\": false,\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"summary\": \"Confirmation of imbalance deals entered under STCA and STWBom desks, specifying deal IDs, desk names, and MW amounts. Ready for questions.\"\n}",
+        "latency_ms": 1166.3,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "support",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Email regarding imbalance deals under STCA and STWBom desks"
+        },
+        "raw_output": "{\n  \"category\": \"support\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Email regarding imbalance deals under STCA and STWBom desks\"\n}",
+        "latency_ms": 9127.0,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "sales",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Notifies recipient of imbalance deals entered under STCA and STWBom desks and requests confirmation."
+        },
+        "raw_output": "{\n  \"category\": \"sales\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Notifies recipient of imbalance deals entered under STCA and STWBom desks and requests confirmation.\"\n}",
+        "latency_ms": 11516.0,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "billing",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Kate reports imbalance deals under STCA and STWB desks with power capacities."
+        },
+        "raw_output": "{\"category\": \"billing\",\n\"priority\": \"medium\",\n\"action_required\": true,\n\"summary\": \"Kate reports imbalance deals under STCA and STWB desks with power capacities.\"}",
+        "latency_ms": 3693.0,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Response to imbalance deal entry under STCA and STWB desks with no questions"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Response to imbalance deal entry under STCA and STWB desks with no questions\"\n}",
+        "latency_ms": 480.0,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 6,
+    "subject": "Competitive Analysis Update #24- US Response to Terrorism",
+    "preview": "Updates below on Afghanistan campaign, key issues for energy/financial markets in \"phase two\"of campaign, Federal Reserve activity, and nuclear plant security.\nRJ  Special Forces/Low Intensity Campaig",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": false,
+        "classification": null,
+        "raw_output": "{\n  \"action_required\": false,\n  \"category\": \"other\",\n  \"priority\": \"high\",\n  \"summary\": \"This email provides updates on the Afghanistan campaign, including special forces operations and media coverage. It also discusses the potential impact of the campaign on energy and financial markets, Federal Re",
+        "latency_ms": 2879.1,
+        "error": "ValidationError: 1 validation error for EmailClassification\nsummary\n  String should have at most 200 characters [type=string_too_long, input_value='This email provides upda...ernational cooperation.', input_type=str]\n"
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "high",
+          "action_required": true,
+          "summary": "US military operation in Afghanistan underway, oil prices may fluctuate due to uncertainty and potential strikes against Iraq; Fed adjusts economic model to account for changed risk tolerance"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"high\",\n  \"action_required\": true,\n  \"summary\": \"US military operation in Afghanistan underway, oil prices may fluctuate due to uncertainty and potential strikes against Iraq; Fed adjusts economic model to account for changed risk tolerance\"\n}",
+        "latency_ms": 19483.2,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": false,
+          "summary": "Email discusses U.S. military operations in Afghanistan, market impacts of potential conflicts, and changes at the Federal Reserve."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": false,\n  \"summary\": \"Email discusses U.S. military operations in Afghanistan, market impacts of potential conflicts, and changes at the Federal Reserve.\"\n}",
+        "latency_ms": 19478.7,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": false,
+        "classification": null,
+        "raw_output": "{\n  \"description\": \"\",\n  \"properties\": {\n    \"category\": {\n      \"description\": \"\",\n      \"enum\": [\"sales\", \"support\", \"billing\", \"spam\", \"other\"],\n      \"title\": \"Category\",\n      \"type\": \"string\"\n    },\n    \"priority\": {\n      \"description\": \"\",\n      \"enum\": [\"low\", \"medium\", \"high\", \"urgent\"],\n ",
+        "latency_ms": 32453.7,
+        "error": "ValidationError: 4 validation errors for EmailClassification\ncategory\n  Field required [type=missing, input_value={'description': '', 'prop...ary', 'type': 'string'}}, input_type=dict]\n    For further information visi"
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": false,
+        "classification": null,
+        "raw_output": "{\n  \"description\": \"Strict-output schema for an LLM-classified email.\\n\\nUsed to enforce shape on LLM responses \\u2014 bad responses get rejected\\nbefore they reach downstream code.\\n\\nNOTE: This is a copy of email-classifier/src/email_classifier/models.py.\\nBoth projects are kept self-contained; if",
+        "latency_ms": 726.4,
+        "error": "ValidationError: 4 validation errors for EmailClassification\ncategory\n  Field required [type=missing, input_value={'description': 'Strict-o...tion', 'type': 'object'}, input_type=dict]\n    For further information visi"
+      }
+    ]
+  },
+  {
+    "email_index": 7,
+    "subject": "Our Wonderful Company",
+    "preview": "Dear Mr. Lay,  I know that you are a very busy man and really don't have time to read messages from your employees, but I just had to write you of my thought and feelings.\nI haven't been sleeping very",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "high",
+          "action_required": false,
+          "summary": "An employee expresses deep concern and worry about the company's current situation and its impact on their retirement, while maintaining faith in leadership."
+        },
+        "raw_output": "{\n  \"action_required\": false,\n  \"category\": \"other\",\n  \"priority\": \"high\",\n  \"summary\": \"An employee expresses deep concern and worry about the company's current situation and its impact on their retirement, while maintaining faith in leadership.\"\n}",
+        "latency_ms": 4759.9,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Employee expressing concern about company issues and lack of sleep due to worry"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Employee expressing concern about company issues and lack of sleep due to worry\"\n}",
+        "latency_ms": 11435.6,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Employee expresses concern about company's future and retirement benefits, asking CEO to remember that 'God is Always in Control'."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Employee expresses concern about company's future and retirement benefits, asking CEO to remember that 'God is Always in Control'.\"\n}",
+        "latency_ms": 11434.4,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "support",
+          "priority": "high",
+          "action_required": true,
+          "summary": "Employee expresses concern about Enron's financial situation and asks Lay for help"
+        },
+        "raw_output": "{\"category\": \"support\", \"priority\": \"high\", \"action_required\": true, \"summary\": \"Employee expresses concern about Enron's financial situation and asks Lay for help\"}",
+        "latency_ms": 6011.7,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": false,
+          "summary": "Employee expresses concern and sadness about Enron's situation and asks for help to resolve issues."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": false,\n  \"summary\": \"Employee expresses concern and sadness about Enron's situation and asks for help to resolve issues.\"\n}",
+        "latency_ms": 502.2,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 8,
+    "subject": "enovate update",
+    "preview": "Barbara, here is the document I discussed concerning some of the Chicago  stuff.\nJeff, I don't know if you have received this from Gregg all ready.\nKay\n",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": false,
+        "classification": null,
+        "raw_output": "{\n  \"summary\": \"An email providing a document about Chicago matters. Jeff may have already received it from Gregg.\"\n}",
+        "latency_ms": 852.2,
+        "error": "ValidationError: 3 validation errors for EmailClassification\ncategory\n  Field required [type=missing, input_value={'summary': 'An email pro...eceived it from Gregg.'}, input_type=dict]\n    For further information visi"
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Receipt acknowledgement and query about missing document"
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Receipt acknowledgement and query about missing document\"\n}",
+        "latency_ms": 9815.5,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Barbara shares a document discussed regarding Chicago matters and mentions Jeff might have received it from Gregg."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Barbara shares a document discussed regarding Chicago matters and mentions Jeff might have received it from Gregg.\"\n}",
+        "latency_ms": 9243.6,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Barbara shares a document about Chicago stuff with Kay and Jeff"
+        },
+        "raw_output": "{\"category\": \"other\", \"priority\": \"low\", \"action_required\": false, \"summary\": \"Barbara shares a document about Chicago stuff with Kay and Jeff\"}",
+        "latency_ms": 3761.4,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Email regarding document from Gregg about Chicago stuff."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Email regarding document from Gregg about Chicago stuff.\"\n}",
+        "latency_ms": 508.7,
+        "error": null
+      }
+    ]
+  },
+  {
+    "email_index": 9,
+    "subject": "Bike Teams",
+    "preview": "Below are the teams.\nFirst member of each team is the captain.\nPlease let me know if I left anyone off.\nChallenge is on between teams:   \tDistance Total \t% of Trips \tTotal Trips  Start recruiting now!",
+    "results": [
+      {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash-lite",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "This email lists teams and members for a challenge. It asks for confirmation of team members and mentions a website to track commutes. Recruitment is starting."
+        },
+        "raw_output": "{\n  \"action_required\": true,\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"summary\": \"This email lists teams and members for a challenge. It asks for confirmation of team members and mentions a website to track commutes. Recruitment is starting.\"\n}",
+        "latency_ms": 993.2,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Email listing teams and their members with a challenge between them."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Email listing teams and their members with a challenge between them.\"\n}",
+        "latency_ms": 12786.2,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "medium",
+          "action_required": true,
+          "summary": "Teams for a challenge are listed with captains and members. Requests feedback on team composition and reminds to start recruiting."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"medium\",\n  \"action_required\": true,\n  \"summary\": \"Teams for a challenge are listed with captains and members. Requests feedback on team composition and reminds to start recruiting.\"\n}",
+        "latency_ms": 12631.1,
+        "error": null
+      },
+      {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Email announces a challenge between teams with team members listed and invites recipients to start recruiting."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Email announces a challenge between teams with team members listed and invites recipients to start recruiting.\"\n}",
+        "latency_ms": 7255.3,
+        "error": null
+      },
+      {
+        "provider": "huggingface",
+        "model": "meta-llama/Llama-3.1-8B-Instruct:cerebras",
+        "schema_pass": true,
+        "classification": {
+          "category": "other",
+          "priority": "low",
+          "action_required": false,
+          "summary": "Informational email about challenge between teams and recruitment update."
+        },
+        "raw_output": "{\n  \"category\": \"other\",\n  \"priority\": \"low\",\n  \"action_required\": false,\n  \"summary\": \"Informational email about challenge between teams and recruitment update.\"\n}",
+        "latency_ms": 572.5,
+        "error": null
+      }
+    ]
+  }
+]

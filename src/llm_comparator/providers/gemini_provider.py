@@ -89,7 +89,14 @@ class GeminiProvider(LLMProvider):
             model=self.model,
         )
         
-        prompt = f"Classify the following email into the structured schema.\n\nEMAIL:\n{email_text}"
+        #prompt = f"Classify the following email into the structured schema.\n\nEMAIL:\n{email_text}"
+        prompt = (
+            "Classify the following email into the JSON schema. "
+            "Provide a summary of at least 10 characters and at most 200 characters "
+            "describing the email's content and purpose. "
+            "Return ONLY the JSON object.\n\n"
+            f"EMAIL:\n{email_text}"
+            )
         
         start = time.perf_counter()
         try:

@@ -75,13 +75,24 @@ class OllamaProvider(LLMProvider):
             )
     
         schema_str = json.dumps(EmailClassification.model_json_schema(), indent=2)
-        prompt = f"""You are an email classification system. Return ONLY a JSON object matching this schema:
+        '''prompt = f"""You are an email classification system. Return ONLY a JSON object matching this schema:
         {schema_str}
         
         EMAIL:
         {email_text}
         
-        Return ONLY the JSON object, no preamble or explanation."""
+        Return ONLY the JSON object, no preamble or explanation."""'''
+
+        prompt = f"""You are an email classification system. Return ONLY a JSON object matching this schema:
+
+            {schema_str}
+
+            The summary field MUST be at least 10 characters and at most 200 characters, describing the email's content and purpose.
+
+            EMAIL:
+            {email_text}
+
+            Return ONLY the JSON object, no preamble or explanation."""
     
         start = time.perf_counter()
         try:
