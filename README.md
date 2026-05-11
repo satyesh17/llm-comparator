@@ -182,6 +182,28 @@ Reports save to `reports/<timestamp>_<prompt-prefix>.md`.
 - **Self-hosted Langfuse** via Docker (currently using Langfuse Cloud)
 - **Concurrent execution** — benchmark runs are serial; parallelizing would cut total time ~5×
 
+
+
+---
+
+## Day 3 Extension: Structured Output Reliability
+
+**The question:** When you ask a model for structured JSON output, how reliably does it deliver?
+
+This benchmark answers that question with measured data — running each of 5 providers against the same real-world emails from the Enron corpus (Yale-LILY/aeslc on Hugging Face).
+
+### Headline Result (N=10)
+
+| Provider/Model | Schema Pass | Pass Rate | Mean Latency | Mode |
+|---|---|---|---|---|
+| `ollama/llama3.1:8b` (local Q4) | 10/10 | **100.0%** | 10,730ms | format=json |
+| `ollama/qwen2.5:7b` (local Q4) | 10/10 | **100.0%** | 11,575ms | format=json |
+| `huggingface/Llama-3.1-8B:cerebras` | 9/10 | 90.0% | **548ms** | prompted |
+| `gemini/gemini-2.5-flash-lite` | 8/10 | 80.0% | 1,845ms | native response_schema |
+| `ollama/mistral:7b` (local Q4) | 8/10 | 80.0% | 7,679ms | format=json |
+
+**The counterintuitive headline:** local Ollama models (slowest, weakest enforcement mechanism) achieved the highest schema-pass rates. API providers with native structured output (Gemini) ranked lower. Same Llama 3.1 8B model varies by 10pp depending on hardware (Cerebras FP16 vs. local Q4).
+
 ---
 
 ## License
