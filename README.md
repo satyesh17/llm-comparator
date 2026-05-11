@@ -206,6 +206,35 @@ This benchmark answers that question with measured data — running each of 5 pr
 
 ---
 
+### What I Measured
+
+**Methodology:** 10 emails sampled with `seed=42` from Yale-LILY/aeslc (a cleaned Enron subset on Hugging Face). Sample includes 1 anchor email (a quoted-printable encoded news article about Enron, known to trigger schema parroting) and 9 randomly drawn corporate emails (legal redlines, trading ops, charity coordination, etc.).
+
+Each provider was asked to classify each email into the same Pydantic schema:
+
+```python
+class EmailClassification(BaseModel):
+    category: Literal["sales", "support", "billing", "spam", "other"]
+    priority: Literal["low", "medium", "high", "urgent"]
+    action_required: bool
+    summary: str = Field(min_length=10, max_length=200)
+```
+
+Schema-pass-rate = (number of responses passing Pydantic validation) / (total attempts). It measures **output reliability**, not semantic correctness — a model can produce parseable JSON in the wrong category and still "pass."
+
+### Findings
+
+Three findings worth highlighting:
+
+**1. Hardware/quantization affects reliability more than model architecture.**
+The same Llama 3.1 8B model achieved different pass rates on different infrastructure: 100% on local CPU/GPU (Q4 quantized), 90% on Cerebras LPUs (FP16). Faster hardware appears to sacrifice some reliability for latency — Cerebras returns in 548ms versus 10,730ms locally, but with one extra failure across 10 trials.
+
+**2. Native structured output is not strictly more reliable than prompted JSON on this benchmark.**
+Gemini Flash-Lite uses `response_schema` for API-layer schema enforcement (theoretically the strictest mode), yet achieved 80% — lower than local Llama with `format=json` (weakest mode) at 100%. The reason: Gemini's API enforces *shape* but not *content constraints* like `min_length`/`max_length`. The model can produce summaries that pass the shape check but fail post-validation. **Native schema mode and content constraints are different layers of defense.**
+
+**3. Long document-like emails are systematically harder for all models.**
+Test case 7 (a long competitive-analysis email) caused 3 of 5 providers to fail — 60% failure rate on a single email, versus ~5% across all others. The failures clustered into two modes: schema parroting (Mistral, Cerebras) and length-constraint violation (Gemini). Document-shaped input triggers different defects than conversational input.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE)
